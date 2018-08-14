@@ -22,6 +22,26 @@ func (r *Report) Insert(db *sql.DB) (sql.Result, error) {
 	return stmt.Exec(r.Title, r.Body)
 }
 
+func Select(db *sql.DB) ([]Report, error) {
+	rows, err := db.Query(`select todo_id, title, body from reports`)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	reports := []Report{}
+	for rows.Next() {
+		var title string
+		var body string
+		if err := rows.Scan(&title, &body); err != nil {
+			return nil, err
+		}
+		r := Report{Title: title, Body: body}
+		reports = append(reports, r)
+	}
+	return reports, nil
+}
+
 func main() {
 	var (
 		title = flag.String("title", "kuke", "cool title")
