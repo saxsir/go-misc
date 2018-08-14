@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body>
+<h1>SignUp</h1>
+
+<form action="/signup" method="POST">
+    {{ .csrfField }}
+    <label for="email">email</label>
+    <input type="text" name="email" value="">
+    <label for="name">name</label>
+    <input type="text" name="name" value="">
+    <label for="password">password</label>
+    <input type="password" name="password" value="">
+    <input type="submit" value="signup">
+</form>
+</body>
+</html>

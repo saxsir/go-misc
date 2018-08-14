@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body>
+<h1>Login</h1>
+<form action="/login" method="POST">
+    {{ .csrfField }}
+    <label for="email">email</label>
+    <input type="text" name="email" value="">
+    <label for="password">password</label>
+    <input type="password" name="password" value="">
+    <input type="submit" value="login">
+</form>
+</body>
+</html>

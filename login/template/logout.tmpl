@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body>
+<h1>Logout</h1>
+
+{{ .currentName }} でログイン済み
+
+<form action="/logout" method="POST">
+    {{ .csrfField }}
+    <input type="submit" value="logout">
+</form>
+</body>
+</html>
